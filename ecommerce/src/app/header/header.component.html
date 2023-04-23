@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">
+
+
+    <span>StoreMaza</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button *ngIf="! isLoggedIn()" routerLink="/login">Login</button>
+    <button mat-raised-button color="warn" *ngIf=" isLoggedIn()" (click)="logout()">Logout</button>
+</mat-toolbar>
+
+
+<mat-toolbar *ngIf="isLoggedIn()">
+
+    <button mat-raised-button color="accent" routerLink="/" style="margin-right: 5px;">Home</button>
+    <button *ngIf="isAdmin()" mat-raised-button color="accent" routerLink="/addNewProduct"
+        style="margin-right: 5px;">Add New
+        Product</button>
+    <button *ngIf="isAdmin()" mat-raised-button color="accent" routerLink="/showProductDetails"
+        style="margin-right: 5px;">Show Product
+        Details</button>
+    <button *ngIf="!isAdmin()" mat-raised-button color="accent" routerLink="/cart"
+        style="margin-right: 5px;">Cart</button>
+    <button *ngIf="!isAdmin()" mat-raised-button color="accent" routerLink="/myOrders">My Orders</button>
+    <button *ngIf="isAdmin()" mat-raised-button color="accent" routerLink="/orderInformation">Order
+        Information</button>
+</mat-toolbar>
